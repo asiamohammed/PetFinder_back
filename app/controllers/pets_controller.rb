@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+     skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy] 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   # GET /pets
